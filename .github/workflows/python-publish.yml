@@ -5,9 +5,9 @@ name: Upload Python Package
 
 on:
   schedule:
-    - cron:   '* * * * *'
-  issues:
-      types: [opened, reopened]
+    - cron:   '*/5 * * * *'
+  project:
+      types: [edited]
 
 
 jobs:
