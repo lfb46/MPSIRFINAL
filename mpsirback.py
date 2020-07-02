@@ -31,7 +31,7 @@ rentalArea = []
 rentalDesc = []
 rentalAmenities = []
 
-"""
+
 #THIS STARTS SALES SCRAPING
 #MAKE SOUP FOR SALES SCRAPES
 page = requests.get("https://www.themaurypeople.com/nantucket-real-estate?filter_waterfront=&filter_pool_type=&filter_mpsir=&filter_vtour=&filter_search=&filter_beds=&filter_baths=&filter_price_min=&filter_price_max=&filter_cat=&filter_region%5B%5D=&filter_sorted=p.created&filter_direction=DESC&commit=")
@@ -225,7 +225,7 @@ for link in rentalLinks:
     tempcounter+=1
 for list in fullRentalPhotos:
    coverRentalPhotos.append(list[0])
-"""
+
 print("Updating Database")
 
 #UPDATE THE DATABASE
