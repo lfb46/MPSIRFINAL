@@ -6,7 +6,7 @@ from firebase_admin import credentials
 from firebase_admin import db
 import sys
 
-#SALES LISTS
+#SALES LISTSss
 salesAddreses = []
 salesPrices = []
 coverSalesPhotos = []
