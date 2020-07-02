@@ -5,8 +5,9 @@ name: Upload Python Package
 
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '* * * * *'
+    - cron:   '* * * * *'
+  issues:
+      types: [opened, reopened]
 
 
 jobs:
