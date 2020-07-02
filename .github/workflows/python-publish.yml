@@ -1,0 +1,39 @@
+# This workflows will upload a Python Package using Twine when a release is created
+# For more information see: https://help.github.com/en/actions/language-and-framework-guides/using-python-with-github-actions#publishing-to-package-registries
+
+name: Upload Python Package
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '*/15 * * * *'
+
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+    - name: Install dependencies
+      env:
+          API_KEY: ${{ secrets.API }} 
+      run: |
+        python -m pip install --upgrade pip
+        pip install firebase-admin
+        pip install beautifulsoup4
+    - shell: bash
+      env:
+          API: ${{ secrets.API }}
+          API2: ${{ secrets.API2 }}
+          API3: ${{ secrets.API3 }} 
+          API4: ${{ secrets.API4 }} 
+          API5: ${{ secrets.API5 }} 
+          API6: ${{ secrets.API6 }} 
+      run: |
+        python mpsirback.py "$API" "$API2" "$API3" "$API4" "$API5" "$API6"
