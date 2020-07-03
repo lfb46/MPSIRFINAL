@@ -54,7 +54,7 @@ for scrapeSalesNum in range(salesRange):
         salesLinks.append("https://www.themaurypeople.com/" + address["href"])
     coverPhotoSoup = soup.find_all('img', { "class" : "img-polaroid ip-overview-thumb"})
     for photo in coverPhotoSoup:
-        coverSalesPhotos.append(photo["src"].replace("https://linkvac.s3.amazonaws.com/photos/", "")strip())
+        coverSalesPhotos.append(photo["src"].replace("https://linkvac.s3.amazonaws.com/photos/", "").strip())
     #GET THE SALESPRICES
     salesPricesRaw = soup.find_all('span', { "class" : "ip-newprice" })
     for price in salesPricesRaw:
