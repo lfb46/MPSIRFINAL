@@ -81,9 +81,13 @@ for link in salesLinks:
     tempList2 = []
     pageDetail = requests.get(link)
     soupDetail = BeautifulSoup(pageDetail.content, 'html.parser')
-    salesDesc.append(soupDetail.find_all('div', { "class" : "pull-left ip-desc-wrapper" })[0].text)
+    listedByList = soupDetail.find_all('p', { "style" : "margin-top: 20px" })
+    listedBy = ""
+    for listing in listedByList:
+        if "Listed By" in listing.text:
+            listedBy = listing.text
+    salesDesc.append(soupDetail.find_all('div', { "class" : "pull-left ip-desc-wrapper" })[0].text + " " + listedBy)
     detailsList = soupDetail.find_all('div', { "class" : "exdetailslg" })
-    #landBool = 0
     for detail in detailsList:
         if "AREA" in detail.text:
             salesArea.append(detail.text.replace('AREA', ''))
