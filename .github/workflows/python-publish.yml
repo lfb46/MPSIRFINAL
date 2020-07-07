@@ -43,4 +43,4 @@ jobs:
           API11: ${{ secrets.API11 }} 
           API12: ${{ secrets.API12 }} 
       run: |
-        python mpsirbacknew.py "$API" "$API2" "$API3" "$API4" "$API5" "$API6" "$API7" "$API8" "$API9" "$API10" "$API11" "$API12"
+        python mpsirbacksplit.py "$API" "$API2" "$API3" "$API4" "$API5" "$API6" "$API7" "$API8" "$API9" "$API10" "$API11" "$API12"
