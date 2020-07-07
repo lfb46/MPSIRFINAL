@@ -5,7 +5,7 @@ name: Upload Python Package
 
 on:
   schedule:
-    - cron:   '0 23 * * *'
+    - cron:   '*/10 * * * *'
   project:
       types: [edited]
 
@@ -36,5 +36,11 @@ jobs:
           API4: ${{ secrets.API4 }} 
           API5: ${{ secrets.API5 }} 
           API6: ${{ secrets.API6 }} 
+          API7: ${{ secrets.API7 }}
+          API8: ${{ secrets.API8 }}
+          API9: ${{ secrets.API9 }} 
+          API10: ${{ secrets.API10 }} 
+          API11: ${{ secrets.API11 }} 
+          API12: ${{ secrets.API12 }} 
       run: |
-        python mpsirback.py "$API" "$API2" "$API3" "$API4" "$API5" "$API6"
+        python mpsirbacknew.py "$API" "$API2" "$API3" "$API4" "$API5" "$API6" "$API7" "$API8" "$API9" "$API10" "$API11" "$API12"
