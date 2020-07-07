@@ -303,27 +303,11 @@ otherApp = firebase_admin.get_app(name='MPSIRBACKUP')
 
 salesRef2 = db.reference('Sales', otherApp)
 salesRef2.update({
-    #'Addreses': salesAddreses,
-    #'Prices': salesPrices,
-    #'coverPhotos': coverSalesPhotos,
-    #'fullPhotos': fullSalesPhotos,
-   #'Area': salesArea,
-   #'Beds': salesBeds,
-    #'Baths': salesBaths,
     'Desc': salesDesc,
-    #'Amenities': salesAmenities,
 })
 rentalsRef2 = db.reference('Rentals', otherApp)
 rentalsRef2.update({
-    #'Addreses': rentalAddreses,
-    #'Prices': rentalPrices,
-    #'coverPhotos': coverRentalPhotos,
-    #'fullPhotos': fullRentalPhotos,
-    #'Area': rentalArea,
-    #'Beds': rentalBeds,
-    #'Baths': rentalBaths,
-    'Desc': rentalDesc,
-    #'Amenities': rentalAmenities
+    'Desc': rentalDesc,  
 })
 
 
