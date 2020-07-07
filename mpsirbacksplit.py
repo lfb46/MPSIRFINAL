@@ -31,6 +31,10 @@ rentalArea = []
 rentalDesc = []
 rentalAmenities = []
 
+def compress(string):
+
+    res = string
+    return res.replace("room", "~^").replace("Nantucket", "^~").replace("floor", "~*").replace("Description", "*~").replace("shower", "~:").replace("with", ":~").replace("living", "~;").replace("and", "&").replace("the", "@").replace("incredible", "~^~").replace("breathtaking", "^~^")
 
 #THIS STARTS SALES SCRAPING
 #MAKE SOUP FOR SALES SCRAPES
@@ -54,7 +58,7 @@ for scrapeSalesNum in range(salesRange):
         salesLinks.append("https://www.themaurypeople.com/" + address["href"])
     coverPhotoSoup = soup.find_all('img', { "class" : "img-polaroid ip-overview-thumb"})
     for photo in coverPhotoSoup:
-        coverSalesPhotos.append(photo["src"].replace("https://linkvac.s3.amazonaws.com/photos/", "").strip())
+        coverSalesPhotos.append(photo["src"].replace("https://linkvac.s3.amazonaws.com/photos/", "").replace(".jpg", "").strip())
     #GET THE SALESPRICES
     salesPricesRaw = soup.find_all('span', { "class" : "ip-newprice" })
     for price in salesPricesRaw:
@@ -86,7 +90,7 @@ for link in salesLinks:
     for listing in listedByList:
         if "Listed By" in listing.text:
             listedBy = listing.text
-    salesDesc.append(soupDetail.find_all('div', { "class" : "pull-left ip-desc-wrapper" })[0].text + " " + listedBy)
+    salesDesc.append(compress(soupDetail.find_all('div', { "class" : "pull-left ip-desc-wrapper" })[0].text + " " + listedBy))
     detailsList = soupDetail.find_all('div', { "class" : "exdetailslg" })
     for detail in detailsList:
         if "AREA" in detail.text:
@@ -123,7 +127,7 @@ for link in salesLinks:
     salesAmenities.append(tempList2)
     fullPhotoSoup = soupDetail.find_all('a', { "data-fancybox" : "gallery" })
     for photo in fullPhotoSoup:
-          tempList.append(photo["href"].replace("https://linkvac.s3.amazonaws.com/photos/", "").strip())
+          tempList.append(photo["href"].replace("https://linkvac.s3.amazonaws.com/photos/", "").replace(".jpg", "").strip())
     fullSalesPhotos.append(tempList)
     tempcounter+=1
     #print(tempList)
@@ -224,7 +228,7 @@ for link in rentalLinks:
     rentalAmenities.append(tempList2)
     fullPhotoSoup = soupDetail.find_all('img', { "class" : "lazy" })
     for photo in fullPhotoSoup:
-       tempList.append(photo["data-src"].replace("https://mpsir-rentals.com/media/com_iproperty/pictures/", "").strip())
+       tempList.append(photo["data-src"].replace("https://mpsir-rentals.com/media/com_iproperty/pictures/", "").replace(".jpg", "").strip())
     fullRentalPhotos.append(tempList)
     tempcounter+=1
 for list in fullRentalPhotos:
