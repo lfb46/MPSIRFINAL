@@ -245,11 +245,6 @@ cred = credentials.Certificate({
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-n7q1u%40mpsir-5bbcd.iam.gserviceaccount.com"
 })
-# INITIALIZE THE APP WITHIN THE SERVICE ACCOUNT GRANTING ADMIN PRIVILIGES
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://mpsir-5bbcd.firebaseio.com/'
-})
-
 
 cred2 = credentials.Certificate({
   "type": "service_account",
@@ -263,7 +258,6 @@ cred2 = credentials.Certificate({
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-io8rm%40mpsirbackup.iam.gserviceaccount.com"
 })
-
 
 # INITIALIZE THE APP WITHIN THE SERVICE ACCOUNT GRANTING ADMIN PRIVILIGES
 firebase_admin.initialize_app(cred, {
@@ -327,6 +321,11 @@ rentalsRef2.update({
     'Desc': rentalDesc,
     'Amenities': rentalAmenities
 })
+
+
+
+
+
 
 
 
