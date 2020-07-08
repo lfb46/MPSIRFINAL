@@ -277,7 +277,6 @@ salesRef.update({
     'Area': salesArea,
     'Beds': salesBeds,
     'Baths': salesBaths,
-    'Desc': salesDesc,
     'Amenities': salesAmenities,
     'AgentEmails': salesAgents
 })
@@ -290,7 +289,6 @@ rentalsRef.update({
     'Area': rentalArea,
     'Beds': rentalBeds,
     'Baths': rentalBaths,
-    'Desc': rentalDesc,
     'Amenities': rentalAmenities
 })
 
