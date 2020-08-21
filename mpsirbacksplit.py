@@ -229,7 +229,10 @@ for link in rentalLinks:
     fullPhotoSoup = soupDetail.find_all('img', { "class" : "lazy" })
     for photo in fullPhotoSoup:
        tempList.append(photo["data-src"].replace("https://mpsir-rentals.com/media/com_iproperty/pictures/", "").replace(".jpg", "").strip())
-    fullRentalPhotos.append(tempList)
+    if tempList == []:
+        fullRentalPhotos.append([''])
+    else:
+        fullRentalPhotos.append(tempList)
     tempcounter+=1
 for list in fullRentalPhotos:
    coverRentalPhotos.append(list[0])
